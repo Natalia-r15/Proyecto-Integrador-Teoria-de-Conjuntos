@@ -20,7 +20,7 @@ void agregarEmisor() {
     char emisor;
     if (numEmisores < MAX) {
         printf("Ingresa el nombre del emisor: ");
-        scanf("%c", &emisor); 
+        scanf(" %c", &emisor); 
         emisores[numEmisores]=emisor; //guardamos el emisor del usuario en nuestro arreglo de emisores
         numEmisores++;
     } else printf("Límite de emisores alcanzado.\n");
@@ -30,7 +30,7 @@ void eliminarEmisor() {
     char nombre;
     int encontrado = 0; //encontrado es nuestra bandera para saber si lo encontró o no
     printf("Emisor a eliminar: ");
-    scanf("%c", &nombre);
+    scanf(" %c", &nombre);
     for (int i = 0; i < numEmisores; i++) {
         if (emisores[i]==nombre) { //emisores[i] accede a la posición de los emisores y verifica su caracter
             for (int j = i; j < numEmisores - 1; j++) //si se encuentra al emisor, recorremos el arreglo hasta el penúltimo número de emisores 
@@ -48,7 +48,7 @@ void eliminarEmisor() {
 void agregarReceptor() {
     if (numReceptores < MAX) {
         printf("Ingresa el nombre del receptor: ");
-        scanf("%s", receptores[numReceptores]);
+        scanf(" %c", &receptores[numReceptores]);
         numReceptores++;
     } else printf("Límite de receptores alcanzado.\n");
 }
@@ -57,7 +57,7 @@ void eliminarReceptor() {
     char nombre;
     int encontrado = 0;
     printf("Receptor a eliminar: ");
-    scanf("%s", nombre);
+    scanf(" %c", &nombre);
     for (int i = 0; i < numReceptores; i++) {
         if (receptores[i]==nombre) {
             for (int j = i; j < numReceptores - 1; j++)
@@ -104,11 +104,11 @@ void crearConexion() {
         //duplicado siendo nuestra bandera para saber si una conexión existe o no
 
         printf("Emisor: ");
-        scanf("%c", &emisor);
+        scanf(" %c", &emisor);
         printf("Llave: ");
         scanf("%d", &llave);
         printf("Receptor: ");
-        scanf("%c", &receptor);
+        scanf(" %c", &receptor);
 
         // Verificar duplicado
         for (i = 0; i < numConexiones; i++) {
@@ -122,7 +122,7 @@ void crearConexion() {
             conexionesR[numConexiones] = receptor;
             conexionesK[numConexiones] = llave;
             numConexiones++; //el número de conexiones aumenta en 1 para no repetir la posición
-            printf("Conexión creada: (%c, %d, %c)\n", emisor, llave, receptor);
+            printf("Conexión creada: ( %c, %d, %c)\n", emisor, llave, receptor);
         } else {
             printf("Conexión duplicada.\n");
         }
@@ -131,14 +131,14 @@ void crearConexion() {
 void mostrarDatos() {
     printf("\nEmisores = {");
     for (int i = 0; i < numEmisores; i++) {
-        printf("%c", emisores[i]);
+        printf(" %c", emisores[i]);
         if (i < numEmisores - 1) printf(", ");
     }
     printf("}\n");
 
     printf("Receptores = {");
     for (int i = 0; i < numReceptores; i++) {
-        printf("%c", receptores[i]);
+        printf(" %c", receptores[i]);
         if (i < numReceptores - 1) printf(", ");
     }
     printf("}\n");
@@ -152,7 +152,7 @@ void mostrarDatos() {
 
     printf("Conexiones = [");
     for (int i = 0; i < numConexiones; i++) {
-        printf("(%s, %d, %s)", conexionesE[i], conexionesK[i], conexionesR[i]);
+        printf("( %c, %d, %c)", conexionesE[i], conexionesK[i], conexionesR[i]);
         if (i < numConexiones - 1) printf(", ");
     }
     printf("]\n");
@@ -195,10 +195,10 @@ void verificarFuncion() {
     }
 
     printf("\nVerificación de propiedades de funciones:\n");
-    printf("- Es función: %c\n", esFuncion ? "Sí" : "No");
-    printf("- Inyectiva: %c\n", inyectiva ? "Sí" : "No");
-    printf("- Sobreyectiva: %c\n", sobreyectiva ? "Sí" : "No");
-    printf("- Biyectiva: %c\n", (inyectiva && sobreyectiva) ? "Sí" : "No");
+    printf("- Es función: %s\n", esFuncion ? "SI" : "NO");
+    printf("- Inyectiva: %s\n", inyectiva ? "SI" : "NO");
+    printf("- Sobreyectiva: %s\n", sobreyectiva ? "SI" : "NO");
+    printf("- Biyectiva: %s\n", (inyectiva && sobreyectiva) ? "SI" : "NO");
 }
 
 void verificarRelacion() {
@@ -240,9 +240,9 @@ void verificarRelacion() {
     }
 
     printf("\nVerificación de propiedades de relaciones:\n");
-    printf("- Reflexiva: %c\n", reflexiva ? "Sí" : "No");
-    printf("- Simétrica: %c\n", simetrica ? "Sí" : "No");
-    printf("- Transitiva: %c\n", transitiva ? "Sí" : "No");
+    printf("- Reflexiva: %s\n", reflexiva ? "SI" : "NO");
+    printf("- Simétrica: %s\n", simetrica ? "SI" : "NO");
+    printf("- Transitiva: %s\n", transitiva ? "SI" : "NO");
 }
 // ===== MENÚ PRINCIPAL =====
 int main() {
